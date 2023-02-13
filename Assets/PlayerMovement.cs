@@ -7,12 +7,15 @@ public class PlayerMovement : MonoBehaviour
 
     //Variables 
 
+
     float horizontalMove;
     public float speed;
 
     Rigidbody2D myBody;
 
     bool grounded = false;
+
+    Animator myAnim; 
 
     // these are the values that control the game feel of how the player moves. Tune these values to  match your wanted game feel
     public float castDist = 0.2f;
@@ -26,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         myBody = GetComponent<Rigidbody2D>();
+        myAnim = GetComponent<Animator>();  
     }
 
     // Update is called once per frame
@@ -38,6 +42,14 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && grounded) //only jump if we're on the ground 
         {
             jump = true; 
+        }
+
+        if (horizontalMove > 0.2f && horizontalMove < 0.2f)
+        {
+            myAnim.SetBool("Walking", true); //if we're moving walking aniamtion plays
+        }else
+        {
+            myAnim.SetBool("Walking", false); //if we're not moving walking animation doesn't play
         }
     }
 
