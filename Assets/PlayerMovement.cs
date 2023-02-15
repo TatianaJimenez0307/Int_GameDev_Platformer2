@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public float castDist = 0.2f;
     public float gravityScale = 5f;
     public float gravityFall = 40f;
-    public float jumpLimit = 2f;
+    public float jumpLimit = 5f;
 
     bool jump = false; 
 
@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, castDist); 
         Debug.DrawRay(transform.position, Vector2.down * castDist, Color.red); //this will show us the raycast
 
-        if(hit.collider != null && hit.transform.name == "ground") //If I'm hitting the ground
+        if(hit.collider != null && hit.transform.CompareTag("ground")) //If I'm hitting the ground
         {
             grounded = true; 
         }else
