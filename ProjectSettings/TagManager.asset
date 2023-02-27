@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - ground
+  - lava
+  - enemy
+  - checkpoint
+  - player
   layers:
   - Default
   - TransparentFX
@@ -12,8 +16,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Ground
+  - Collider
   - 
   - 
   - 
